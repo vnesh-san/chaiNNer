@@ -6,7 +6,7 @@ from api import GB, KB, MB, Dependency, add_package
 from gpu import nvidia_is_available
 from system import is_arm_mac
 
-general = "PyTorch uses .pth models to upscale images."
+general = "PyTorch uses .pth and .pt models to upscale and process images."
 
 if is_arm_mac:
     os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
@@ -106,6 +106,12 @@ package = add_package(
             pypi_name="spandrel_extra_arches",
             version="0.1.1",
             size_estimate=83 * KB,
+        ),
+        Dependency(
+            display_name="Ultralytics",
+            pypi_name="ultralytics",
+            version="8.1.47",
+            size_estimate=12 * MB,
         ),
     ],
     icon="PyTorch",
